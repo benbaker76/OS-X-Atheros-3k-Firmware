@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		70056268150AB10C00578176 /* ath3k-1fw.h in Headers */ = {isa = PBXBuildFile; fileRef = 70056267150AB10C00578176 /* ath3k-1fw.h */; };
-		7089FA6C1509B9E0008E9E6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7089FA6A1509B9E0008E9E6B /* InfoPlist.strings */; };
 		7089FA6F1509B9E0008E9E6B /* IOath3kfrmwr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7089FA6E1509B9E0008E9E6B /* IOath3kfrmwr.cpp */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +152,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7089FA6C1509B9E0008E9E6B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

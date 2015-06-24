@@ -3,9 +3,9 @@
 #define __IOATH3KFRMWR__
 
 #ifdef DEBUG_MSG
-#define DEBUG_LOG(args...)  IOLog(args)
+#define DEBUG_LOG(args...)  do { IOLog(args); } while(0)
 #else
-#define DEBUG_LOG(args...)
+#define DEBUG_LOG(args...)  do { } while (0)
 #endif
 
 #include <IOKit/usb/IOUSBDevice.h>

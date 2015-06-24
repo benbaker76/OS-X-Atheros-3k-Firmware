@@ -85,9 +85,9 @@ void local_IOath3kfrmwr::detach(IOService *provider)
 bool local_IOath3kfrmwr::start(IOService *provider)
 {
 #ifdef DEBUG
-    IOLog("%s(%p)::start - Version 1.2.0 starting\n", getName(), this);
+    IOLog("%s(%p)::start - Version 1.2.1 starting\n", getName(), this);
 #else
-    IOLog("IOath3kfrmwr: Version 1.2.0 starting\n");
+    IOLog("IOath3kfrmwr: Version 1.2.1 starting\n");
 #endif
     
     IOReturn 				err;
@@ -109,9 +109,10 @@ bool local_IOath3kfrmwr::start(IOService *provider)
     if (err)
     {
         IOLog("%s(%p)::start - failed to reset the device\n", getName(), this);
-        return false;
+        //return false;
     }
-    DEBUG_LOG("%s(%p)::start: device reset\n", getName(), this);
+    else
+        DEBUG_LOG("%s(%p)::start: device reset\n", getName(), this);
     
     // 0.3 Find the first config/interface
     int numconf = 0;

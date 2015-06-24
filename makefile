@@ -2,6 +2,7 @@
 
 KEXT=IOath3kfrmwr.kext
 DIST=RehabMan-Atheros
+INSTDIR=/System/Library/Extensions
 
 ifeq ($(findstring 32,$(BITS)),32)
 OPTIONS:=$(OPTIONS) -arch i386
@@ -28,12 +29,14 @@ update_kernelcache:
 
 .PHONY: install_debug
 install_debug:
-	sudo cp -R ./Build/Debug/$(KEXT) /System/Library/Extensions
+	sudo cp -R ./Build/Debug/$(KEXT) $(INSTDIR)
+	if [ "`which tag`" != "" ]; then sudo tag -a Purple $(INSTDIR)/$(KEXT); fi
 	make update_kernelcache
 
 .PHONY: install
 install:
-	sudo cp -R ./Build/Release/$(KEXT) /System/Library/Extensions
+	sudo cp -R ./Build/Release/$(KEXT) $(INSTDIR)
+	if [ "`which tag`" != "" ]; then sudo tag -a Blue $(INSTDIR)/$(KEXT); fi
 	make update_kernelcache
 
 .PHONY: distribute
