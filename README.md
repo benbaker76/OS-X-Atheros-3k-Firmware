@@ -9,7 +9,7 @@ Currently known to work on: Snow Leopard (10.6.8), Lion, Mountain Lion, Maverick
 
 Current downloads:
 
-https://bitbucket.org/RehabMan/os-x-atheros-3k-firmware/downloads
+https://bitbucket.org/RehabMan/os-x-atheros-3k-firmware/downloads/
 
 
 Old/Archived downloads:
