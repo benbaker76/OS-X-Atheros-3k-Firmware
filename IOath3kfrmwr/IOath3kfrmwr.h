@@ -8,7 +8,7 @@
 #define DEBUG_LOG(args...)  do { } while (0)
 #endif
 
-#include <IOKit/usb/IOUSBDevice.h>
+#include <IOKit/usb/IOUSBHostDevice.h>
 
 #define EXPORT __attribute__((visibility("default")))
 
@@ -20,12 +20,14 @@ class EXPORT local_IOath3kfrmwr : public IOService
     OSDeclareDefaultStructors(org_rehabman_IOath3kfrmwr)
     
 protected:
-    IOUSBDevice * pUsbDev;
+    IOUSBHostDevice * m_usbHostDevice;
+	IOUSBHostInterface *m_usbHostInterface;
+	IOUSBHostPipe *m_bulkPipe;
         
 public:
 #ifdef DEBUG
     // this is from the IORegistryEntry - no provider yet
-    virtual bool 	init(OSDictionary *propTable);
+    virtual bool init(OSDictionary *propTable);
     
     // IOKit methods. These methods are defines in <IOKit/IOService.h>
     virtual IOService* probe(IOService *provider, SInt32 *score );
@@ -46,6 +48,10 @@ public:
     virtual bool terminate(IOOptionBits options = 0);
     virtual bool finalize(IOOptionBits options);
 #endif
+	virtual IOReturn initFirmwareTransfer(void *firmwareBuffer, uint32_t size);
+	virtual bool findFirstInterface();
+	virtual IOReturn getStatus(uint16_t *statusNumber);
+	virtual bool findPipe(IOUSBHostPipe **pipe, uint8_t type, uint8_t direction);
 };
 
 #endif //__IOATH3KFRMWR__ 
